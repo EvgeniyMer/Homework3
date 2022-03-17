@@ -34,14 +34,36 @@ int main()
     }
     else {
         while (k != m) {
-            p = p+0.000001;
-            k = (S*p/100*pow((1+p/100), n))/(12*pow((1+p/100), n)-12);
+            p = p + 0.000001;
+            k = (S * p / 100 * pow((1 + p / 100), n)) / (12 * pow((1 + p / 100), n) - 12);
         }
         cout << "процент равен " << p << "\n";
     }
     //Задание №3
     cout << "Задание №3\n";
-    ofstream fail;
-    fail.open("fail.txt");
-
+    char stroka[100];
+    ofstream fileout("file.txt");
+    fileout << "Строка для третьего задания1234\n";
+    fileout.close();
+    ifstream filein("file.txt");
+    if (!filein.is_open()) {
+        cout << "Файл не может быть открыт\n";
+    } else {
+        filein.getline(stroka, 100);
+        filein.close();
+        cout << stroka << "\n";
+    }
+    //Задание №4
+    cout << "Задание №4\n";
+    char stroka3[100];
+    if (!filein.is_open()) {
+        cout << "Файл не может быть открыт\n";
+    }
+    else {
+        ifstream fileout("file.txt");
+        filein.getline(stroka3, 100);
+        filein.close();
+        if 
+    }
+    
 }
