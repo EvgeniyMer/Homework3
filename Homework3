@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
+#include <ctype.h>
 using namespace std;
 
-int main()
-{
+int main() {
     system("chcp 1251");
     //Задание №1
     cout << "Задание №1\n";
@@ -36,8 +36,16 @@ int main()
         while (k != m) {
             p = p + 0.000001;
             k = (S * p / 100 * pow((1 + p / 100), n)) / (12 * pow((1 + p / 100), n) - 12);
+            if ((k > m) or (S == 0) or (m == 0) or (m == 0)) {
+                break;
+            }
         }
-        cout << "процент равен " << p << "\n";
+        if ((k > m) or (S == 0) or (m == 0) or (m == 0)) {
+            cout << "данные введены не корректно\n";
+        }
+        else {
+            cout << "процент равен " << p << "\n";
+        }
     }
     //Задание №3
     cout << "Задание №3\n";
@@ -48,22 +56,26 @@ int main()
     ifstream filein("file.txt");
     if (!filein.is_open()) {
         cout << "Файл не может быть открыт\n";
-    } else {
+    }
+    else {
         filein.getline(stroka, 100);
         filein.close();
         cout << stroka << "\n";
     }
     //Задание №4
     cout << "Задание №4\n";
-    char stroka3[100];
-    if (!filein.is_open()) {
+    char stroka4[100];
+    ifstream filein4("file.txt");
+    if (!filein4.is_open()) {
         cout << "Файл не может быть открыт\n";
     }
     else {
-        ifstream fileout("file.txt");
-        filein.getline(stroka3, 100);
-        filein.close();
-        if 
+        filein4.getline(stroka4, 100);
+        filein4.close();
+        for (int i = 0; i < 100; i++) {
+            if (isdigit(stroka4[i])) {
+                cout << stroka4[i] << "\n";
+            }
+        }
     }
-    
 }
