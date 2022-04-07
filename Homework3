@@ -33,14 +33,14 @@ int main() {
         cout << "Значение p равно нулю\n";
     }
     else {
-        while (k != m) {
-            p = p + 0.000001;
+        while (abs(k - m)>0.01) {
+            p = p + 0.001;
             k = (S * p / 100 * pow((1 + p / 100), n)) / (12 * pow((1 + p / 100), n) - 12);
-            if ((k > m) or (S == 0) or (m == 0) or (m == 0)) {
+            if ((S == 0) or (m == 0) or (n == 0) or (m >= S)) {
                 break;
             }
         }
-        if ((k > m) or (S == 0) or (m == 0) or (m == 0)) {
+        if ((S == 0) or (m == 0) or (n == 0) or (m >= S)) {
             cout << "данные введены не корректно\n";
         }
         else {
