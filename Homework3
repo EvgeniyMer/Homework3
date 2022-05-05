@@ -15,10 +15,12 @@ int main() {
     cin >> S >> n >> p;
     if ((p < 0) or (n <= 0) or (S <= 0)) {
         cout << "Данные введены некорректно\n";
-    } else {
+    }
+    else {
         if (p == 0) {
             cout << "Значение месячной выплаты равно " << S / n << "\n";
-        } else {
+        }
+        else {
             m = (S * p / 100 * pow((1 + p / 100), n)) / (12 * pow((1 + p / 100), n) - 12);
             cout << "Значение месячной выплаты равно " << m << "\n";
         }
@@ -30,11 +32,13 @@ int main() {
     cout << "Введите размер займа, размер месячной выплаты и количество лет:\n";
     cin >> S >> m >> n;
     if ((S == 0) or (m == 0) or (n == 0) or (m >= S)) {
-        cout << "данные введены не корректно\n";
-    } else {
+        cout << "данные введены некорректно\n";
+    }
+    else {
         if (m == (S / n)) {
             cout << "Значение p равно нулю\n";
-        } else {
+        }
+        else {
             while (abs(k - m) > 0.1) {
                 p = p + 0.001;
                 k = (S * p / 100 * pow((1 + p / 100), n)) / (12 * pow((1 + p / 100), n) - 12);
@@ -51,7 +55,8 @@ int main() {
     ifstream filein("file.txt");
     if (!filein.is_open()) {
         cout << "Файл не может быть открыт\n";
-    } else {
+    }
+    else {
         filein.getline(stroka, 100);
         filein.close();
         cout << stroka << "\n";
@@ -62,7 +67,8 @@ int main() {
     ifstream filein4("file.txt");
     if (!filein4.is_open()) {
         cout << "Файл не может быть открыт\n";
-    } else {
+    }
+    else {
         getline(filein4, stroka4);
         filein4.close();
         for (int i = 0; i < stroka4.length(); i++) {
@@ -72,19 +78,20 @@ int main() {
         }
     }
     //Задание №5
+    cout << "\nЗадание №5\n";
     string stroka5 = "hdktyxnejdosmtevtdubqmaitbdteb";
-    while (k < 29) {
-        int k = 0;
-        for (int i = 0; i < (stroka5.size()-1); i++) {
-            if (stroka5[i] < stroka5[i + 1]) {
-                k++;
-            }
-            else {
+    int sch = 0;
+    while (sch < 29) {
+        sch = 0;
+        for (int i = 0; i < (stroka5.length() - 1); i++) {
+            if (stroka5[i] <= stroka5[i + 1]) {
+                sch++;
+            } else {
                 int p = stroka5[i + 1];
                 stroka5[i + 1] = stroka5[i];
                 stroka5[i] = p;
             }
         }
     }
-    cout << '\n' << stroka5;
+    cout << stroka5 << '\n';
 }
