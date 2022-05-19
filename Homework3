@@ -2,10 +2,42 @@
 #include <fstream>
 #include <ctype.h>
 #include <string>
+#include <iomanip>
+#define _USE_MATH_DEFINES
+#include <math.h>
 using namespace std;
 
-int main()
-{
+int Function2(int x) {
+    int sign;
+    if (x > 0) {
+        sign = 1;
+    } else if (x == 0) {
+        sign = 0;
+    } else {
+        sign = -1;
+    }
+    cout << sign << "\n";
+    return 0;
+}
+
+int Function31(double a, double b) {
+    cout << a*b << '\n';
+    return 0;
+}
+
+int Function32(double a, double b, double c) {
+    double S3, p3=(a+b+c)/2;
+    S3 = p3 * sqrt((p3 - a) * (p3 - b) * (p3 - c));
+    cout << S3 << '\n';
+    return 0;
+}
+
+int Function33(double a) {
+    cout << M_PI*a*a << '\n';
+    return 0;
+}
+
+int main() {
     system("chcp 1251");
     //Задание №1
     cout << "Задание №1\n";
@@ -17,31 +49,72 @@ int main()
     ifstream fileout("file.txt");
     if (!fileout.is_open()) {
         cout << "Файл не может быть открыт\n";
-    } else {
+    }
+    else {
         getline(fileout, stroka1);
         for (int i = 0; i < stroka1.length(); i++) {
             if (isdigit(stroka1[i])) {
-                sum1 = sum1 + (stroka1[i]-48);
+                sum1 = sum1 + (stroka1[i] - 48);
             }
         }
     }
-    cout << sum1;
+    cout << sum1 << "\n";
     //Задание №2
     cout << "Задание №2\n";
     int a1;
-    void Function2(int x) {
-        int sign;
-        if (x > 0) {
-            sign = 1;
-        } else if (x=0) {
-            sign = 0;
-        } else {
-            sign = -1;
-        }
-        cout << sign;
-    }
     cin >> a1;
     Function2(a1);
     //Задание №3
     cout << "Задание №3\n";
+    int k3;
+    double a, b, c;
+    cout << "Введите номер фигуры:\n1 - прямоугольник;\n2 - треугольник;\n3 - круг;\n";
+    cin >> k3;
+    switch (k3) {
+        case 1:
+            cout << "Введите значение длины и ширины:\n";
+            cin >> a >> b;
+            Function31(a, b);
+        break;
+        case 2:
+            cout << "Введите значения длин сторон:\n";
+            cin >> a >> b >> c;
+            Function32(a, b, c);
+        break;
+        case 3:
+            cout << "Введите значение радиуса:\n";
+            cin >> a;
+            Function33(a);
+        break;
+        default:
+            cout << "неправильный номер\n";
+        break;
+    }
+    //Задание №4
+    cout << "Задание №4\n";
+    for (int i = 0; i < 13; i++) {
+        if (i < 8) {
+            if (0 == i % 2) {
+                for (int j = 0; j < 6; j++) {
+                    cout << "  *";
+                }
+                cout.width(54);
+                cout << setw(54) << setfill('=');
+            } else {
+                cout << " ";
+                for (int j = 0; j < 6; j++) {
+                    cout << "*  ";
+                }
+            }
+            cout << '\n';
+        }
+
+    }
+    for (int i = 1; i < 18; i++) {
+        if (0 == i % 2) {
+            cout << setw(72) << setfill(' ') << '\n';
+        } else {
+            cout << setw(72) << setfill('=') << '\n';
+        }
+    }
 }
