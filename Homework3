@@ -11,9 +11,11 @@ int Function2(int x) {
     int sign;
     if (x > 0) {
         sign = 1;
-    } else if (x == 0) {
+    }
+    else if (x == 0) {
         sign = 0;
-    } else {
+    }
+    else {
         sign = -1;
     }
     cout << sign << "\n";
@@ -21,19 +23,19 @@ int Function2(int x) {
 }
 
 int Function31(double a, double b) {
-    cout << a*b << '\n';
+    cout << "Площадь равна: " << a * b << '\n';
     return 0;
 }
 
 int Function32(double a, double b, double c) {
-    double S3, p3=(a+b+c)/2;
-    S3 = p3 * sqrt((p3 - a) * (p3 - b) * (p3 - c));
-    cout << S3 << '\n';
+    double S3, p3 = (a + b + c) / 2;
+    S3 = sqrt(p3 * (p3 - a) * (p3 - b) * (p3 - c));
+    cout << "Площадь равна: " << S3 << '\n';
     return 0;
 }
 
 int Function33(double a) {
-    cout << M_PI*a*a << '\n';
+    cout << "Площадь равна: " << M_PI * a * a << '\n';
     return 0;
 }
 
@@ -62,6 +64,7 @@ int main() {
     //Задание №2
     cout << "Задание №2\n";
     int a1;
+    cout << "Введите любое число:\n";
     cin >> a1;
     Function2(a1);
     //Задание №3
@@ -71,50 +74,69 @@ int main() {
     cout << "Введите номер фигуры:\n1 - прямоугольник;\n2 - треугольник;\n3 - круг;\n";
     cin >> k3;
     switch (k3) {
-        case 1:
-            cout << "Введите значение длины и ширины:\n";
-            cin >> a >> b;
-            Function31(a, b);
+    case 1:
+        cout << "Введите значение длины и ширины:\n";
+        cin >> a >> b;
+        Function31(a, b);
         break;
-        case 2:
-            cout << "Введите значения длин сторон:\n";
-            cin >> a >> b >> c;
-            Function32(a, b, c);
+    case 2:
+        cout << "Введите значения длин сторон:\n";
+        cin >> a >> b >> c;
+        Function32(a, b, c);
         break;
-        case 3:
-            cout << "Введите значение радиуса:\n";
-            cin >> a;
-            Function33(a);
+    case 3:
+        cout << "Введите значение радиуса:\n";
+        cin >> a;
+        Function33(a);
         break;
-        default:
-            cout << "неправильный номер\n";
+    default:
+        cout << "неправильный номер\n";
         break;
     }
     //Задание №4
     cout << "Задание №4\n";
-    for (int i = 0; i < 13; i++) {
-        if (i < 8) {
-            if (0 == i % 2) {
-                for (int j = 0; j < 6; j++) {
+    for (int i = 0; i < 26; i++) { 
+        for (int k = 0; k < 65; k++) {
+            if ((k < 6) && (i < 9)) {
+                if ((i % 2) == 0) {
+                    cout << "*  ";
+                } else {
                     cout << "  *";
                 }
-                cout.width(54);
-                cout << setw(54) << setfill('=');
+            } else if ((k > 6) && (i < 9)) {
+                if ((i % 2) == 0) {
+                    cout << "=";
+                } else {
+                    cout << " ";
+                }
+            } else if ((i % 2) == 0) {
+                cout << "=";
             } else {
                 cout << " ";
-                for (int j = 0; j < 6; j++) {
-                    cout << "*  ";
-                }
             }
-            cout << '\n';
         }
-
+        if ((i > 8) && ((i % 2) == 0)) {
+            cout << "============";
+        }
+        cout << '\n';
     }
-    for (int i = 1; i < 18; i++) {
-        if (0 == i % 2) {
-            cout << setw(72) << setfill(' ') << '\n';
-        } else {
-            cout << setw(72) << setfill('=') << '\n';
+
+    for (int i = 0; i < 26; i++) {
+        for (int k = 0; k < 65; k++) {
+            if ((i % 2) == 0) {
+                if ((i < 9)&&(k<6)) {
+                    cout << "*  ";
+                } else {
+                    if (k == 53) {
+                        k = k + 12;
+                        break;
+                    }
+                    cout << "=";
+                }
+            } else if ((i < 9) && (k < 6)) {
+                cout << "  *";
+            }
         }
+        cout << '\n';
     }
 }
