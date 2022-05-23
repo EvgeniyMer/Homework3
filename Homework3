@@ -94,40 +94,14 @@ int main() {
         break;
     }
     //Задание №4
-    cout << "Задание №4\n";
-    for (int i = 0; i < 26; i++) { 
-        for (int k = 0; k < 65; k++) {
-            if ((k < 6) && (i < 9)) {
-                if ((i % 2) == 0) {
-                    cout << "*  ";
-                } else {
-                    cout << "  *";
-                }
-            } else if ((k > 6) && (i < 9)) {
-                if ((i % 2) == 0) {
-                    cout << "=";
-                } else {
-                    cout << " ";
-                }
-            } else if ((i % 2) == 0) {
-                cout << "=";
-            } else {
-                cout << " ";
-            }
-        }
-        if ((i > 8) && ((i % 2) == 0)) {
-            cout << "============";
-        }
-        cout << '\n';
-    }
-
+    cout << "Задание №4\n\n";
     for (int i = 0; i < 26; i++) {
-        for (int k = 0; k < 65; k++) {
+        for (int k = 0; k < 75; k++) {
             if ((i % 2) == 0) {
                 if ((i < 9)&&(k<6)) {
                     cout << "*  ";
                 } else {
-                    if (k == 53) {
+                    if ((i<9)&&(k == 63)) {
                         k = k + 12;
                         break;
                     }
@@ -139,4 +113,47 @@ int main() {
         }
         cout << '\n';
     }
+    //Задание №5
+    cout << "Задание №5\n";
+    for (int i = 0; i < 16; i++) {
+        for (int k = 0; k < 120; k++) {
+            if ((0.5*i + 0.3 - 4) > (sin(0.5*k-30)) && (0.5*i - 0.3 - 4) < (sin(0.5*k-30)) or (k == 60) or (i == 8)) {
+                cout << 0;
+            } else {
+                cout << " ";
+            }
+        }
+        cout << '\n';
+    }
+    //Задание №6
+    cout << "Задание №6\n";
+    string rim_num, stroka6;
+    int dec_num;
+    cout << "Введите римское число:\n";
+    cin >> rim_num;
+    for (int i = 0; i < rim_num.length(); i++) {
+        if (i > rim_num.length()) {
+            break;
+        }
+        switch (rim_num[i]) {
+        case 'I':
+            stroka6[i] = 1;
+        case 'V':
+            stroka6[i] = 5;
+        case 'X':
+            stroka6[i] = 10;
+        case 'L':
+            stroka6[i] = 50;
+        case 'C':
+            stroka6[i] = 100;
+        case 'D':
+            stroka6[i] = 500;
+        case 'M':
+            stroka6[i] = 1000;
+        default:
+            cout << "Число введено неправильно\n";
+            break;
+        }
+    }
+    cout << stroka6;
 }
