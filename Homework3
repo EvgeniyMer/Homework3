@@ -97,16 +97,18 @@ int main() {
     for (int i = 0; i < 26; i++) {
         for (int k = 0; k < 75; k++) {
             if ((i % 2) == 0) {
-                if ((i < 9)&&(k<6)) {
+                if ((i < 9) && (k < 6)) {
                     cout << "*  ";
-                } else {
-                    if ((i<9)&&(k == 63)) {
+                }
+                else {
+                    if ((i < 9) && (k == 63)) {
                         k = k + 12;
                         break;
                     }
                     cout << "=";
                 }
-            } else if ((i < 9) && (k < 6)) {
+            }
+            else if ((i < 9) && (k < 6)) {
                 cout << "  *";
             }
         }
@@ -116,9 +118,10 @@ int main() {
     cout << "Задание №5\n";
     for (int i = 0; i < 16; i++) {
         for (int k = 0; k < 120; k++) {
-            if ((0.5*i + 0.3 - 4) > (sin(0.5*k-30)) && (0.5*i - 0.3 - 4) < (sin(0.5*k-30)) or (k == 54) or (i == 8)) {
+            if ((0.5 * i + 0.3 - 4) > (sin(0.5 * k - 30)) && (0.5 * i - 0.3 - 4) < (sin(0.5 * k - 30)) or (k == 54) or (i == 8)) {
                 cout << 0;
-            } else {
+            }
+            else {
                 cout << " ";
             }
         }
@@ -127,14 +130,13 @@ int main() {
     //Задание №6
     cout << "Задание №6\n";
     string rim_num;
-    int dec_num, stroka6[12] , i6=0, v6=0, x6=0, l6=0, c6=0, d6=0, m6=0;
+    int dec_num=0, stroka6[12], i6 = 0, v6 = 0, x6 = 0, l6 = 0, c6 = 0, d6 = 0, m6 = 0, sh6=0;
     cout << "Введите римское число:\n";
     cin >> rim_num;
     for (int i = 0; i < rim_num.length(); i++) {
         if (i > rim_num.length()) {
             break;
         }
-        cout << rim_num[i] << " _ ";
         switch (rim_num[i]) {
         case 'I':
             stroka6[i] = 1;
@@ -168,13 +170,42 @@ int main() {
             cout << "Число введено неправильно\n";
             break;
         }
-        cout << '\n' << stroka6[i] << '\n' << i6;
+    }
+    for (int i = 0; i < rim_num.length(); i++) {
+            if (sh6 == i) {
+                sh6=sh6+2;
+            }
+
     }
     if ((i6 >= 4) or (v6 >= 4) or (x6 >= 4) or (l6 >= 4) or (c6 >= 4) or (d6 >= 4) or (m6 >= 4)) {
         cout << "Число введено неправильно\n";
     } else {
         for (int i = 0; i < rim_num.length(); i++) {
-            if ((i6 >= 1) or (v6 >= 1) or (x6 >= 1) or (l6 >= 1) or (c6 >= 1) or (d6 >= 1) or (m6 >= 1))
+            dec_num = dec_num + stroka6[i];
+            cout << dec_num;
+            if ((rim_num.length()>1) && (i>0) && ((dec_num == 5) or (dec_num == 10) or (dec_num == 50) or (dec_num == 100) or (dec_num == 500) or (dec_num == 1000))) {
+                cout << "Число введено неправильно\n";
+                break;
+            }
+            if (i == rim_num.length()) {
+                cout << dec_num << '\n';
+            }
         }
     }
+    //Задание №7
+    cout << "Задание №7\n";
+    int i7, s07=0, si7, m7=37, b7=3, c7=64;
+    cout << "Введите любое число:\n";
+    cin >> i7;
+    si7 = (m7 * s07 + b7) % c7;
+    for (int i = 2; i < i7; i++) {
+        if (i7 == 1) {
+            break;
+        }
+        si7= (m7 * si7 + b7) % c7;
+    }
+    cout << '\n' << si7;
+    //Задание №8
+    cout << "Задание №8\n";
+
 }
